@@ -7,8 +7,14 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/teste", (req, res) => {
-    res.send("Funcionou!")
+const participantes = [];
+const mensagens = [];
+
+app.post("/participantes", (req, res) => {
+    const { name } = req.body
+    participantes.push(name)
+    console.log(name)
+    res.send("ok!")
 })
 
 const PORT = 5000
