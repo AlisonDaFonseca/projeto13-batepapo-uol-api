@@ -12,8 +12,15 @@ const mensagens = [];
 
 app.post("/participantes", (req, res) => {
     const { name } = req.body
-    participantes.push(name)
+  
+    participantes.push({name})
     console.log(name)
+    res.send("ok!")
+})
+
+app.post("/mensagens", (req, res) => {
+    const { to, text, type } = req.body
+    mensagens.push({ to, text, type})
     res.send("ok!")
 })
 
