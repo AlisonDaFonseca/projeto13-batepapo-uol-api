@@ -24,5 +24,12 @@ app.post("/mensagens", (req, res) => {
     res.send("ok!")
 })
 
+app.get("/participantes", (req, res) => {
+    const listaParticipantes = participantes.map((participante) => {
+        return {...participante}
+    })
+    res.send(listaParticipantes)
+})
+
 const PORT = 5000
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`))
